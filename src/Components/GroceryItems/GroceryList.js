@@ -15,7 +15,7 @@ const GroceryList = ({ filterByHave = 'all'}) => {
       listItems = items.filter(item => item.have === filterByHave);
     }
     setFilteredItems(listItems);
-  }, [items]);
+  }, [items, filterByHave]);
 
   return (
     <Table>
@@ -26,7 +26,7 @@ const GroceryList = ({ filterByHave = 'all'}) => {
         <TextHeaderCell flexBasis={120} flexShrink={0} flexGrow={0}>
           We Have
         </TextHeaderCell>
-        <TextHeaderCell flexBasis={80} flexShrink={0} flexGrow={0}>
+        <TextHeaderCell>
         </TextHeaderCell>
       </Head>
       <Body height={240}>
@@ -36,7 +36,7 @@ const GroceryList = ({ filterByHave = 'all'}) => {
             <TextCell flexBasis={120} flexShrink={0} flexGrow={0}>
               <Checkbox checked={!!item.have} onChange={e => updateItem(item.id, { have: e.target.checked })}></Checkbox>
             </TextCell>
-            <TextCell flexBasis={80} flexShrink={0} flexGrow={0}>
+            <TextCell>
               <IconButton intent="danger" icon="delete" onClick={() => deleteItem(item.id)}></IconButton>
             </TextCell>
           </Row>

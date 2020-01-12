@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { IconButton, Pane, TextInputField } from 'evergreen-ui';
-import firestore, { GROCERY_ITEMS, addItem } from '../services/firestore';
+import { addItem } from '../services/firestore';
 
 const AddItem = () => {
   const [item, setItem] = useState('');
-
 
   return (
     <Pane padding={16} border={false} display="flex" flexDirection="row" justifyContent="center" alignItems="center">
