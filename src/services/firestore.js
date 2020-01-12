@@ -14,8 +14,11 @@ firebase.initializeApp(firebaseConfig);
 
 export const GROCERY_ITEMS = 'grocery_items';
 const db = firebase.firestore();
+const groceryItemsRef = () => db.collection(GROCERY_ITEMS);
+const getGroceryDoc = id => groceryItemsRef().doc(id);
 
-const getGroceries = (setItems) => db.collection(GROCERY_ITEMS).get().then(snapshot => {
+
+const getGroceries = (setItems) => groceryItemsRef().onSnapshot(snapshot => {
   let newItems = [];
   snapshot.forEach(doc => {
     const item = doc.data();
@@ -23,26 +26,15 @@ const getGroceries = (setItems) => db.collection(GROCERY_ITEMS).get().then(snaps
     newItems.push(item);
   });
   setItems(newItems)
-})
-
-export const getGroceriesByHave = (setItems, have = true) => db.collection(GROCERY_ITEMS).where('have', '==', have).get().then(snapshot => {
-  let newItems = [];
-
-  if (snapshot.empty) {
-    console.log('No matching documents.');
-  }
-
-  snapshot.forEach(doc => {
-    const item = doc.data();
-    item.id = doc.id
-    newItems.push(item);
-  });
-  return setItems(newItems)
 });
 
-export const deleteItem = (id) => db.collection(GROCERY_ITEMS).doc(id).delete();
 
-export const addItem = (item, setItem) => db.collection(GROCERY_ITEMS).add({
+
+export const updateItem = (id, data) => getGroceryDoc(id).update(data)
+
+export const deleteItem = (id) => getGroceryDoc(id).delete();
+
+export const addItem = (item, setItem) => groceryItemsRef().add({
   name: item,
   date_bought: new Date(),
   have: false,
