@@ -18,7 +18,7 @@ const groceryItemsRef = () => db.collection(GROCERY_ITEMS);
 const getGroceryDoc = id => groceryItemsRef().doc(id);
 
 
-const getGroceries = (setItems) => groceryItemsRef().onSnapshot(snapshot => {
+const getGroceries = (setItems) => groceryItemsRef().orderBy('name').onSnapshot(snapshot => {
   let newItems = [];
   snapshot.forEach(doc => {
     const item = doc.data();

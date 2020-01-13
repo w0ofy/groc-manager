@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { IconButton, Pane, TextInputField } from 'evergreen-ui';
+import { IconButton, Pane, TextInput } from 'evergreen-ui';
 import { addItem } from '../services/firestore';
 
 const AddItem = () => {
   const [item, setItem] = useState('');
 
   return (
-    <Pane padding={16} border={false} display="flex" flexDirection="row" justifyContent="center" alignItems="center">
-      <TextInputField
-        label="Add a new item"
-        placeholder="string beans"
+    <Pane padding={24} border={false} display="flex" flexDirection="row" justifyContent="center" alignItems="start">
+      <TextInput
+        placeholder="Add a new item"
         value={item}
         onChange={e => setItem(e.target.value)}
       />

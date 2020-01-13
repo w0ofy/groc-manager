@@ -1,13 +1,18 @@
 import React, { createContext, useState, useContext } from 'react';
 
-const ViewsContext = createContext('lists') 
+const ViewsContext = createContext(null) 
 
 export const VIEWS = [
-  { view: 'Our List', value: 'list' },
-  { view: 'We Haves', value: 'haves' },
-  { view: 'We Don\'t Haves', value: 'donthaves' },
-
+  { view: 'Master', value: 'all' },
+  { view: 'Haves', value: 'haves' },
+  { view: 'Don\'t Haves', value: 'donthaves' },
 ];
+
+export const viewsFilterMap = {
+  all: 'all',
+  haves: true,
+  donthaves: false,
+}
 
 export const ViewsProvider = ({ children,  }) => {
   const [selectedView, setSelectedView] = useState(VIEWS[0].value)
@@ -20,3 +25,4 @@ export const ViewsProvider = ({ children,  }) => {
 };
 
 export const useViews = () =>  useContext(ViewsContext);
+

@@ -4,8 +4,7 @@ import ViewSelector from './Components/ViewSelector';
 import { ViewsProvider } from './Context/Views';
 import { ItemsProvider } from './Context/Items';
 import ListSwitcher from './Components/GroceryItems/ListSwitcher';
-import './App.css';
-
+import Header from './Components/Header';
 
 function App() {
   return (
@@ -17,10 +16,10 @@ function App() {
           display="flex"
           flexDirection="column"
           alignItems="center"
-          justifyContent="center"
+          justifyContent="start"
           border={false}
         >
-          <Heading marginTop={25}>Mike &amp; Meg's Groceries</Heading>
+          <Header />
           <ViewSelector />
           <ListSwitcher />
         </Pane>

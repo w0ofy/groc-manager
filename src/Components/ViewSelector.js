@@ -7,20 +7,18 @@ const ViewSelector = () => {
   const { selectedView, setSelectedView } = useViews();
   return (
   <Pane
-    height={75}
-    width="100%"
+    height={50}
     display="flex"
     alignItems="center"
-    justifyContent="center"
+    justifyContent="start"
+    minWidth={375}
+    maxWidth={600}
     border={false}
-
   >
     <TabNavigation>
       {VIEWS.map(({ view, value }) => (
         <Tab
           key={value}
-          is="button"
-          href={value}
           id={value}
           isSelected={value === selectedView}
           onSelect={() => setSelectedView(value)}
