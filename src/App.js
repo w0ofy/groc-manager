@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Pane } from 'evergreen-ui';
+import { Pane } from 'evergreen-ui';
 import ViewSelector from './Components/ViewSelector';
 import { ViewsProvider } from './Context/Views';
 import { ItemsProvider } from './Context/Items';

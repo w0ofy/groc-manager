@@ -7,13 +7,12 @@ const ViewSelector = () => {
   const { selectedView, setSelectedView } = useViews();
   return (
   <Pane
-    height={50}
+    height={45}
     display="flex"
     alignItems="center"
     justifyContent="start"
     minWidth={375}
     maxWidth={600}
-    border={false}
   >
     <TabNavigation>
       {VIEWS.map(({ view, value }) => (
