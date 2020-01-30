@@ -3,7 +3,7 @@ import React, { createContext, useState, useContext } from 'react';
 const ViewsContext = createContext(null) 
 
 export const VIEWS = [
-  { view: 'Master', value: 'all' },
+  { view: 'All', value: 'all' },
   { view: 'Haves', value: 'haves' },
   { view: 'Don\'t Haves', value: 'donthaves' },
 ];
